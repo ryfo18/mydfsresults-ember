@@ -8,13 +8,14 @@ export default Ember.Controller.extend(EmberValidations, {
     }
   },
   actions: {
-    createUser: function() {
-      var data = this.getProperties('email')
-      $.post('http://127.0.0.1:8000/api/signups/', data, null, 'json').then(
-        function(response) {
-          this.reset();
-        }
-      )
+    createUser: function () {
+      var data = this.store.createRecord('signup', {
+        email: this.get('email')
+      });
+      data.save().then(function(data) {
+      }).catch(function(reason) {
+        Ember.logger.log('Reason: ', reason);
+      });
     }
   }
 });
