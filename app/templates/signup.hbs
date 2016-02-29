@@ -1,9 +1,11 @@
 <h1>Signup</h1>
 <div class="signup-form">
-  {{input type="text" placeholder="Email" value=email}}
+  <form {{action 'createUser' on="submit"}}>
+    {{input type="text" placeholder="Email" value=email}}
     {{#if errors.email}}
       <span class="error errorForValidation">{{errors.email}}</span>
-      {{/if}}
-<br>
-<button type="submit" class="btn btn-primary" {{bind-attr disabled="isInvalid"}}{{action 'createUser'}}>Submit</button>
+    {{/if}}
+    <br>
+    <button type="submit" class="btn btn-primary" {{bind-attr disabled=isInvalid}}>Submit</button>
+  </form>
 </div>
