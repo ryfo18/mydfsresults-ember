@@ -1,11 +1,14 @@
 <h1>Signup</h1>
 <div class="signup-form">
-  <form {{action 'createUser' on="submit"}}>
-    {{input type="text" placeholder="Email" value=email}}
-    {{#if errors.email}}
-      <span class="error errorForValidation">{{errors.email}}</span>
-    {{/if}}
-    <br>
-    <button type="submit" class="btn btn-primary" {{bind-attr disabled=isInvalid}}>Submit</button>
-  </form>
+  {{input type="text" placeholder="Email" value=email}}
+  {{#if errors.email}}
+    <span class="error errorForValidation">{{errors.email}}</span>
+  {{/if}}
+  {{#each model.errors.email as |error|}}
+    <div class="error">
+      {{error.message}}
+    </div>
+  {{/each}}
+  <br>
+  <button {{action 'createUser'}} {{bind-attr disabled=isInvalid}}>Submit</button>
 </div>

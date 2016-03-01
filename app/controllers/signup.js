@@ -7,15 +7,16 @@ export default Ember.Controller.extend(EmberValidations, {
       format: { with: /^(\w+@\w+\.\w+)/, allowBlank: false, message: "Enter a valid e-mail address" }
     }
   },
-  actions: {
-    createUser: function () {
-      var data = this.store.createRecord('signup', {
-        email: this.get('email')
-      });
-      data.save().then(function(data) {
-      }).catch(function(reason) {
-        Ember.logger.log('Reason: ', reason);
-      });
-    }
-  }
+//  actions: {
+//    createUser: function () {
+//      var data = this.store.createRecord('signup', {
+//        email: this.get('email')
+//      });
+//      data.save().then(function(response) {
+//        console.log(response);
+//      }, function(error) {
+//        console.log(error.errors.email);
+//      });
+//    }
+//  }
 });
