@@ -19,8 +19,9 @@ export default Ember.Controller.extend(EmberValidations, {
     }
   },
   actions: {
-    errors: "",
     createUser: function() {
+      this.set("server_errors", null);
+      var ctx = this;
       var data = this.store.createRecord('user', {
         email: this.get('email'),
         password: this.get('password')
@@ -28,8 +29,8 @@ export default Ember.Controller.extend(EmberValidations, {
       data.save().then(function(response) {
         console.log(response);
       }, function(error) {
-        this.set('errors', data.get('errors'));
-        console.log(data.get('errors'));
+        ctx.set('server_errors', data.get('errors'));
+        console.log(data.get('server_errors.email'));
       });
     }
   }

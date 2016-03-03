@@ -4,7 +4,7 @@
   {{#if errors.email}}
     <span class="error errorForValidation">{{errors.email}}</span>
   {{/if}}
-  {{#each errors.email  as |error|}}
+  {{#each server_errors.email  as |error|}}
     <div class="error">
       {{error.message}}
     </div>
