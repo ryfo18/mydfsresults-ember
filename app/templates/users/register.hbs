@@ -1,0 +1,22 @@
+<h1>Signup</h1>
+<div class="signup-form">
+  {{input type="text" placeholder="Email" value=email}}
+  {{#if errors.email}}
+    <span class="error errorForValidation">{{errors.email}}</span>
+  {{/if}}
+  {{#each errors.email  as |error|}}
+    <div class="error">
+      {{error.message}}
+    </div>
+  {{/each}}
+  <br>
+  {{input type="password" placeholder="Password" value=password}}
+  {{#if errors.password}}
+    <span class="error errorForValidation">{{errors.password}}</span>
+  {{/if}}
+  {{input type="password" placeholder="Confirm Password" value=passwordConfirmation}}
+  {{#if errors.passwordConfirmation}}
+    <span class="error errorForValidation">{{errors.passwordConfirmation}}</span>
+  {{/if}}
+  <button {{action 'createUser'}} {{bind-attr disabled=isInvalid}}>Submit</button>
+</div>

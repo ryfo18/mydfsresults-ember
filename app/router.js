@@ -6,7 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route("signup", { path: "/signup"});
+  this.resource("users", function(){
+    this.route('register');
+  });
 });
 
 export default Router;
