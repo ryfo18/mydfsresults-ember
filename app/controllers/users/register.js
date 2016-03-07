@@ -28,22 +28,10 @@ export default Ember.Controller.extend(EmberValidations, {
       });
       data.save().then(function(response) {
         console.log(response);
-      }, function(error) {
+      }, function() {
         ctx.set('server_errors', data.get('errors'));
         console.log(data.get('server_errors.email'));
       });
     }
   }
-//  actions: {
-//    createUser: function () {
-//      var data = this.store.createRecord('signup', {
-//        email: this.get('email')
-//      });
-//      data.save().then(function(response) {
-//        console.log(response);
-//      }, function(error) {
-//        console.log(error.errors.email);
-//      });
-//    }
-//  }
 });

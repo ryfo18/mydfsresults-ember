@@ -8,6 +8,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.resource("users", function(){
     this.route('register');
+    this.route('validate', {path:"/validate/:auth_path"});
   });
 });
 
