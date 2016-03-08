@@ -11,6 +11,8 @@
       </div>
     {{/each}}
     <br>
-    <button class="btn btn-primary" type="submit" {{bind-attr disabled=isInvalid}}>Submit</button>
+    Password: {{input type="password" value=password}}
+    Confirm Password: {{input type="password" value=passwordConfirmation}}
+    <button class="btn btn-primary" type="submit" disabled={{isInvalid}}>Submit</button>
   </div>
 </form>

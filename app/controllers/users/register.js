@@ -4,7 +4,8 @@ import EmberValidations from 'ember-validations';
 export default Ember.Controller.extend(EmberValidations, {
   validations: {
     email: {
-      format: { with: /^(\w+@\w+\.\w+)/, allowBlank: false, message: "Enter a valid e-mail address" }
+      // this regex comes from http://emailregex.com/
+      format: { with: /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i, allowBlank: false, message: "Enter a valid e-mail address" }
     },
     password: {
       confirmation: true,
